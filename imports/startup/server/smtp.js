@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor'
 let smtp;
 Meteor.startup(function() {
 	smtp = {
-		username: 'stockdiary@gmail.com',
+		username: 'stockdiaryapp@gmail.com',
 		password: '200owina07',
 		server: 'smtp.gmail.com',
 		port: 587
