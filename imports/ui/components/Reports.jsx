@@ -23,12 +23,13 @@ export default class Reports extends React.Component {
 		const canShow = this.props.canShow
 		const authInProcess = this.props.authInProcess
 		const coptions = this.renderCategories()
+		const user = this.props.user
 
 		if (authInProcess) {
 			return <p>Loading ... </p>
 		}
 
-		if (canShow) {
+		if (canShow && user.emails[0].verified) {
 		return (
 			<div>
 			<Table>

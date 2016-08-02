@@ -2,6 +2,7 @@ import React from 'react';
 import {mount, withOptions} from 'react-mounter';
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import { Meteor } from 'meteor/meteor'
+import { Accounts } from  'meteor/accounts-base'
 
 
 import  AppLayout  from '../../ui/layout/AppLayout.jsx';
@@ -12,28 +13,23 @@ import  Home from '../../ui/components/Home.jsx';
 import  Register from '../../ui/components/Register.jsx';
 import  Login from '../../ui/components/Login.jsx';
 import  Menu from '../../ui/components/Menu.jsx';
+import UserRegistered from '../../ui/components/UserRegistered.jsx'
 
 const mount2 = withOptions({
     rootId: 'container',
     
 }, mount);
 
-function trackCreateCategoryRoute(context, redirect) {
-	if(Meteor.user().username !== 'admin') {
-		redirect('/')
-	}
-}
-
-function trackStockRoute(context, redirect) {
-	if(!Meteor.user() ) {
-		redirect('/')
-	}
-}
-
 
 FlowRouter.route('/', {
 	action() {
 		mount2(AppLayout, {content: <Home />});
+	}
+});
+
+FlowRouter.route('/usersignedup', {
+	action() {
+		mount2(AppLayout, {content: <UserRegistered />});
 	}
 });
 
@@ -71,4 +67,18 @@ FlowRouter.route('/reports', {
 		mount2(AppLayout, {content: <ReportsContainer />, nav: <Menu />});
 	}
 });
+
+
+Accounts.onEmailVerificationLink((token, done) => {
+
+	Accounts.verifyEmail(token, function (err) {
+	if(!err) {
+		FlowRouter.go('/products')
+		done();
+	}
+	
+	});
+});
+
+
 

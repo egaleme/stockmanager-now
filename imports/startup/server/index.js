@@ -5,3 +5,5 @@ import '../../api/product/product.js';
 import '../../api/product/server/publications.js';
 import '../../api/category/server/publications.js';
 import './security.js'
+import './email.js'
+import './smtp.js'

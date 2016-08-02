@@ -74,12 +74,12 @@ export default class Register extends React.Component {
       username: storename,
       profile: {firstname: firstname, lastname: lastname, storename: storename},
       }, err => {
-      	if(err) {
-      		this.setState({error: err.reason})
-      	}
+      	if(!err) {
+      		
+      		FlowRouter.go('/usersignedup')
 
-      	this.setState({error: null})
-      	FlowRouter.go('/products')
+      	}
+    	
       }
     );
 

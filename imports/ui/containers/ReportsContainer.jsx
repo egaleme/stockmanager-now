@@ -12,6 +12,7 @@ export default createContainer(()=> {
 	return {
 		authInProcess,
 		canShow,
+		user: Meteor.user(),
 		categories: Categories.find({}, {sort: {'name': 1}}).fetch(),
 	};
 }, Reports)

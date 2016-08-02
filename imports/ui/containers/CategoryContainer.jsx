@@ -11,6 +11,7 @@ export default createContainer(() => {
 	return {
 		authInProcess: Meteor.loggingIn(),
 		canShow: !!Meteor.userId(),
+		user: Meteor.user(),
 		loading,
 		categories: Categories.find({}, {sort: {'name': 1}}).fetch(),
 	};

@@ -28,13 +28,14 @@ render() {
 		const categories = this.props.categories	
 		const errors = this.state.errors
 		const created = this.state.created;
+		const user = this.props.user
 
 		if (authInProcess) {
 
 			return <p>Loading ... </p>
 		}
 
-		if (canShow) {
+		if (canShow && user.emails[0].verified) {
 
 
  return (

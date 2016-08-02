@@ -27,7 +27,7 @@ export default class Header extends React.Component {
 		
 		return (
 			<header>
-			{user ? this.renderAuth() : this.renderGuest()}
+			{user && user.emails[0].verified ? this.renderAuth() : this.renderGuest()}
 			<div>{error}</div>
 			</header>
 			)
@@ -62,7 +62,11 @@ export default class Header extends React.Component {
 	}
 
 	logout() {
-		Meteor.logout()
+		Meteor.logout(function(err) {
+			if(!err) {
+				FlowRouter.go('/')
+			}
+		})
 		//FlowRouter.go('/')
 	}
 

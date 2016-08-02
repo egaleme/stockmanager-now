@@ -22,12 +22,13 @@ export default class CategoryApp extends React.Component {
 			const loading = this.props.loading;
 			const canShow = this.props.canShow
 			const authInProcess = this.props.authInProcess
+			const user = this.props.user
 
 			if (authInProcess) {
 			return <p>loading ... </p>
 			}
 
-			if (canShow) {
+			if (canShow && user.emails[0].verified) {
 
 			return (
 			<div>
