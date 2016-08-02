@@ -7,7 +7,7 @@ Meteor.startup(function() {
 
 Accounts.emailTemplates.siteName = 'Stockdiary-dev';
 
-Accounts.emailTemplates.from = 'aleme gabriel <Stockdiary-dev@gmail.com>';
+Accounts.emailTemplates.from = 'aleme gabriel <Stockdiaryapp@gmail.com>';
 
 Accounts.emailTemplates.verifyEmail.subject = function(user) {
 	return 'Confirm Your Email Address, ' + user.username;
