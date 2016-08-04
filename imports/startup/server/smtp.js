@@ -1,21 +1,15 @@
 import { Meteor } from 'meteor/meteor'
 
-let smtp;
+let smtpSettings;
 Meteor.startup(function() {
-	smtp = {
-		username: 'stockdiaryapp@gmail.com',
+	smtpSettings = {
+		username: 'stockdiaryapp',
 		password: '200owina07',
 		server: 'smtp.gmail.com',
 		port: 587
 	};
-
-	process.env.MAIL_URL = 'smtp://' +
-			encodeURIComponent(smtp.username) + ':' +
-			encodeURIComponent(smtp.password) + '@' +
-			encodeURIComponent(smtp.server) + ':' +
-			smtp.port;
-
-
-	process.env.ROOT_URL = 'http://stockdiary-dev.herokuapp.com';
-
+/*
+	process.env.MAIL_URL = 'smtp://smtpSettings.username%40gmail.com:smtpSettings.password@smtpSettings.server:smtpSettings.port';
+			
+*/
 })

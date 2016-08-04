@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor'
 
 import { Products } from '../product.js'
 
+
 Meteor.publish('products', function productsPublication() {
 	if(! this.userId) {
 		throw new Meteor.Error("Not Authorized")
@@ -22,3 +23,4 @@ Meteor.publish('productscategory', function productsCategory(catId) {
 	}
 	return Products.find({ownerId: this.userId, categoryid: catId})
 })
+

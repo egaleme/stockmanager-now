@@ -23,7 +23,7 @@ export default class Products extends React.Component {
 
 
 render() {
-		const canShow = this.props.canShow
+		
 		const authInProcess = this.props.authInProcess
 		const categories = this.props.categories	
 		const errors = this.state.errors
@@ -35,7 +35,7 @@ render() {
 			return <p>Loading ... </p>
 		}
 
-		if (canShow && user.emails[0].verified) {
+		if (user && user.emails[0].verified) {
 
 
  return (

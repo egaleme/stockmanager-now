@@ -9,6 +9,10 @@ Accounts.emailTemplates.siteName = 'Stockdiary-dev';
 
 Accounts.emailTemplates.from = 'aleme gabriel <Stockdiaryapp@gmail.com>';
 
+Accounts.urls.verifyEmail = (token) => {
+	return Meteor.absoluteUrl(`verified/${token}`);
+}
+
 Accounts.emailTemplates.verifyEmail.subject = function(user) {
 	return 'Confirm Your Email Address, ' + user.username;
 }
