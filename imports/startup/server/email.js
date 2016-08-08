@@ -7,7 +7,7 @@ Meteor.startup(function() {
 
 Accounts.emailTemplates.siteName = 'Stockdiary-dev';
 
-Accounts.emailTemplates.from = 'aleme gabriel <Stockdiaryapp@gmail.com>';
+Accounts.emailTemplates.from = 'Stockdiary App <Stockdiaryapp@gmail.com>';
 
 Accounts.urls.verifyEmail = (token) => {
 	return Meteor.absoluteUrl(`verified/${token}`);

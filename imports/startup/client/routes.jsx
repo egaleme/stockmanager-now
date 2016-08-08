@@ -82,12 +82,13 @@ Accounts.onEmailVerificationLink((token, done) => {
 
 */
 
+
 FlowRouter.route('/verified/:token', {
 	action(params) {
 		Accounts.verifyEmail(params.token, function (err) {
 	if(!err) {
-		
-		mount2(AppLayout, {content: <ProductsContainer />, nav: <Menu />})
+	
+		FlowRouter.go('/products')
 	}
 	
 	});

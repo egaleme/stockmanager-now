@@ -8,8 +8,8 @@ Meteor.startup(function() {
 		server: 'smtp.gmail.com',
 		port: 587
 	};
-/*
-	process.env.MAIL_URL = 'smtp://smtpSettings.username%40gmail.com:smtpSettings.password@smtpSettings.server:smtpSettings.port';
+
+	process.env.MAIL_URL = "smtp://stockdiaryapp%40gmail.com:200owina07@smtp.gmail.com:465";
 			
-*/
+
 })
