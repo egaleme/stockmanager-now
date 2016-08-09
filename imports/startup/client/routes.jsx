@@ -68,21 +68,6 @@ FlowRouter.route('/reports', {
 	}
 });
 
-/*
-Accounts.onEmailVerificationLink((token, done) => {
-
-	Accounts.verifyEmail(token, function (err) {
-	if(!err) {
-		FlowRouter.go('/products')
-		done();
-	}
-	
-	});
-});
-
-*/
-
-
 FlowRouter.route('/verified/:token', {
 	action(params) {
 		Accounts.verifyEmail(params.token, function (err) {
@@ -95,6 +80,6 @@ FlowRouter.route('/verified/:token', {
 
 		
 	}
-})
+});
 
 

@@ -1,31 +1,12 @@
 import React from 'react';
 
-import HeaderContainer from '../containers/HeaderContainer.jsx'
+import HeaderContainer from '../containers/HeaderContainer.jsx';
 
-export default class AppLayout extends React.Component {
-	constructor(props) {
-		super(props)
+export default function AppLayout(props) {
+	const {nav, content} = props
 
-		this.renderWithNav = this.renderWithNav.bind(this)
-		this.renderWithoutNav = this.renderWithoutNav.bind(this)
-	}
-
-	render() {
-		const nav = this.props.nav
-		const content = this.props.content
-		return (
-				<div >
-			<HeaderContainer />
-			{nav ? this.renderWithNav() : this.renderWithoutNav()}
-			</div>
-
-			)
-	}
-
-	renderWithNav() {
-		const nav = this.props.nav
-		const content = this.props.content
-
+	const renderWithNav =() => {
+		
 		return (
 			<div className="container">
 			<div className="col-md-2">
@@ -40,9 +21,8 @@ export default class AppLayout extends React.Component {
 
 	}
 
-	renderWithoutNav() {
-		const content = this.props.content
-
+	const renderWithoutNav =() => {
+	
 		return (
 						
 			<div className="container">
@@ -51,4 +31,13 @@ export default class AppLayout extends React.Component {
 			
 			)
 	}
+	
+		return (
+				<div >
+			<HeaderContainer />
+			{nav ? renderWithNav() : renderWithoutNav()}
+			</div>
+
+			)
+	
 }
