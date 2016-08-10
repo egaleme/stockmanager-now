@@ -1,7 +1,7 @@
 import { Mongo } from 'meteor/mongo'
 import { Meteor } from 'meteor/meteor'
 import { SimpleSchema } from 'meteor/aldeed:simple-schema'
-//import {attachSchema } from 'meteor/aldeed:collection2'
+
 
 class CategoriesCollection  extends Mongo.Collection {
 	insert(doc, callback) {
@@ -26,7 +26,11 @@ Categories.schema = new SimpleSchema({
 	name: {
 		type: String,
 
-	}
+	},
+	ownerId: {
+		type: String,
+		defaultValue: '',
+	},
 })
 
 Categories.attachSchema(Categories.schema)
@@ -34,26 +38,27 @@ Categories.attachSchema(Categories.schema)
 
 Meteor.methods({
 	'categoryinsert'(name) {
-		if (Meteor.user().username !== 'admin') {
+		if (!this.userId) {
 			throw new Meteor.Error('not authorized')
 		}
 		category = {}
 		category.name = name
+		category.ownerId = this.userId
 		Categories.insert(category)
 	},
 
 	'categoryupdate'(cat) {
-		if (Meteor.user().username !== 'admin') {
+		if (!this.userId) {
 			throw new Meteor.Error('not authorized')
 		}
 
-		Categories.update({_id: cat.id}, {$set: {name: cat.name}})
+		Categories.update({_id: cat.id, ownerId: Meteor.userId()}, {$set: {name: cat.name}})
 	},
 
 	'categoryremove'(catId) {
-		if (Meteor.user().username !== 'admin') {
+		if (!this.userId) {
 			throw new Meteor.Error('not authorized')
 		}
-		Categories.remove({_id: catId})
+		Categories.remove({_id: catId, ownerId: Meteor.userId()})
 	}
 })

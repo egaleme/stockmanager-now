@@ -67,7 +67,7 @@ export default class Header extends React.Component {
 				FlowRouter.go('/')
 			}
 		})
-		//FlowRouter.go('/')
+		
 	}
 
 	renderGuest() {
@@ -111,8 +111,7 @@ export default class Header extends React.Component {
 			<Navbar.Text >
 				 Welcome : {user.profile.storename}
 			</Navbar.Text>
-				{this.renderPostCategory()}
-			<NavItem eventKey={2} onClick={this.logout}>Logout</NavItem>
+			<NavItem eventKey={1} onClick={this.logout}>Logout</NavItem>
 		</Nav>
 	</Navbar.Collapse>
 </Navbar>
@@ -121,11 +120,5 @@ export default class Header extends React.Component {
 			)
 	}
 
-	renderPostCategory() {
-			const username = this.props.user.username
-		if (username === "admin") {
-			return <NavItem eventKey={1} href="/categories">Add Categories</NavItem>
-		}
-		return ""
-	}
+	
 }
