@@ -18,12 +18,12 @@ Accounts.emailTemplates.verifyEmail.subject = function(user) {
 }
 
 Accounts.emailTemplates.verifyEmail.text = function(user,url) {
-	return 'Welcome to the Stockdiary-dev App '
+	return 'Welcome to the Stockdiary App '
 	+ 'To verify your email address go ahead and follow the link : ' + url;
 }
 
 Accounts.emailTemplates.verifyEmail.html = function(user, url) {
-	return '<h1> Welcome to the Stockdiary-dev App </h1>'
+	return '<h1> Welcome to the Stockdiary App </h1>'
 	+ '<p> To <strong> verify your email address </strong> go ahead and follow the link below: </p>'
 	+ url;
 }
