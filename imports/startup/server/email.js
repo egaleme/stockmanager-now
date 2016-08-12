@@ -5,7 +5,7 @@ import { Random } from 'meteor/random'
 
 Meteor.startup(function() {
 
-Accounts.emailTemplates.siteName = 'Stockdiary-dev';
+Accounts.emailTemplates.siteName = 'Stockdiary App';
 
 Accounts.emailTemplates.from = 'Stockdiary App <Stockdiaryapp@gmail.com>';
 
